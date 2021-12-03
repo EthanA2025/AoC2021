@@ -7,6 +7,6 @@ def check_depth(filename):
     return depth_increase
 
 def main():
-    check_depth("problem 1/problem1.txt")
+    check_depth(".\problem_1\problem_1.txt")
 
 main()
