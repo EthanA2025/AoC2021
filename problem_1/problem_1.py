@@ -1,12 +1,15 @@
 def check_depth(filename):
-    depth_increase = 0 
     with open(filename) as file:
+        depth_increase = 0
+        last = int(next(file).strip())
         for line in file:
-            print(line)
+            if last < int(line.strip()):
+                depth_increase += 1
+            last = int(line.strip())
 
     return depth_increase
 
 def main():
-    check_depth(".\problem_1\problem_1.txt")
+    print(check_depth(".\problem_1\problem_1.txt"))
 
 main()
