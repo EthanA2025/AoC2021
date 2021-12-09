@@ -35,10 +35,35 @@ def rates(filename):
     return decimal * dec # Multiply gamma and espillon decimal values
 
 #----------part 2---------#
+def life_rating(filename):
+    counter = 0
+    oxygen = 0
+    co2 = 0
+    criteria = []
+    with open(filename) as file:
+            zeros = 0
+            ones = 0 # reset variables 
+            with open(filename) as file:
+                for line in file:
+                    line = line.strip().split() # line formatting
+                    for num in line:
+                        if num[counter] == '1':
+                            ones += 1
+                        else:
+                            zeros += 1   
+                if ones > zeros:
+                    with open(filename) as file:
+                        for line in file:
+                            line = line.strip().split()
+                            for num in line:
+                                if num[0] == '1':
+                                    criteria += line
 
+    return criteria
 
 def main():
-    print(rates("puzzle.txt"))
+    # print(rates("puzzle.txt"))
+    print(life_rating("test.txt"))
 
 if __name__ == "__main__":
     main()
